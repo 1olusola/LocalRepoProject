@@ -1,0 +1,15 @@
+{
+  "type": "CANVAS",
+  "name": "test",
+  "children": [
+    {
+      "type": "RECTANGLE",
+      "name": "Box",
+      "x": 0,
+      "y": 0,
+      "width": 200,
+      "height": 100,
+      "fills": [{ "type": "SOLID", "color": { "r": 1, "g": 0, "b": 0 } }]
+    }
+  ]
+}
