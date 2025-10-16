@@ -1,459 +1,873 @@
 {
-  "meta": {
-    "project": "Recipe Finder App",
-    "author": "Olusola Ogunwobi",
-    "date": "2025-10-16"
-  },
-
-  "tokens": {
-    "colors": {
-      "primary": "#FF7043",
-      "primary-dark": "#E85E35",
-      "secondary": "#4CAF50",
-      "accent": "#FFD54F",
-      "background": "#FAFAFA",
-      "card": "#FFFFFF",
-      "text-primary": "#212121",
-      "text-secondary": "#757575",
-      "muted-border": "#E0E0E0",
-      "shadow-rgba": "rgba(0,0,0,0.08)",
-      "link": "#2196F3",
-      "error": "#E53935"
-    },
-    "typography": {
-      "font-family": "Poppins, system-ui, sans-serif",
-      "h1": { "size": 36, "weight": 600, "lineHeight": 44 },
-      "h2": { "size": 24, "weight": 600, "lineHeight": 32 },
-      "body": { "size": 16, "weight": 400, "lineHeight": 24 },
-      "meta": { "size": 14, "weight": 500, "lineHeight": 20 },
-      "button": { "size": 16, "weight": 600, "lineHeight": 20 }
-    },
-    "spacing": {
-      "base": 8,
-      "xs": 8,
-      "sm": 12,
-      "md": 24,
-      "lg": 40,
-      "xl": 80
-    },
-    "radii": {
-      "button": 8,
-      "card": 12,
-      "input": 10,
-      "pill": 999
-    },
-    "shadows": {
-      "card": "0px 6px 18px rgba(0,0,0,0.06)",
-      "lift": "0px 10px 20px rgba(0,0,0,0.12)"
-    },
-    "breakpoints": {
-      "desktop": 1440,
-      "tablet": 768,
-      "mobile": 375
-    }
-  },
-
-  "assets": {
-    "hero": "assets/hero-plate@2x.jpg",
-    "recipe-1": "assets/recipe-card-1@2x.jpg",
-    "recipe-2": "assets/recipe-card-2@2x.jpg",
-    "recipe-3": "assets/recipe-card-3@2x.jpg",
-    "icon-search": "assets/icon-search.svg",
-    "icon-heart": "assets/icon-heart.svg",
-    "icon-clock": "assets/icon-clock.svg",
-    "icon-servings": "assets/icon-servings.svg"
-  },
-
-  "components": [
+  "type": "DOCUMENT",
+  "name": "Recipe Finder App – JSON-to-Figma",
+  "children": [
     {
-      "type": "component",
-      "name": "Header",
-      "frame": { "x": 80, "y": 0, "width": 1280, "height": 80 },
-      "style": {
-        "background": "tokens.colors.card",
-        "padding": { "left": 0, "right": 0, "top": 0, "bottom": 0 },
-        "shadow": null
-      },
+      "type": "CANVAS",
+      "name": "Desktop – 1440×1024",
       "children": [
+        /* ---------- 1.  Header  ---------- */
         {
-          "type": "text",
-          "name": "Logo",
-          "x": 0,
-          "y": 24,
-          "width": 220,
-          "height": 32,
-          "style": {
-            "text": "Recipe Finder",
-            "fontFamily": "tokens.typography.font-family",
-            "fontSize": 20,
-            "fontWeight": 700,
-            "color": "tokens.colors.primary"
-          }
-        },
-        {
-          "type": "group",
-          "name": "NavLinks",
-          "x": 760,
-          "y": 24,
-          "width": 420,
-          "height": 32,
-          "children": [
-            {
-              "type": "text",
-              "name": "Home",
-              "x": 0,
-              "y": 0,
-              "width": 60,
-              "height": 32,
-              "style": { "fontSize": 16, "fontWeight": 500, "color": "tokens.colors.text-primary" }
-            },
-            {
-              "type": "text",
-              "name": "Search Recipes",
-              "x": 96,
-              "y": 0,
-              "width": 140,
-              "height": 32,
-              "style": { "fontSize": 16, "fontWeight": 500, "color": "tokens.colors.text-primary" }
-            },
-            {
-              "type": "text",
-              "name": "Favorites",
-              "x": 264,
-              "y": 0,
-              "width": 80,
-              "height": 32,
-              "style": { "fontSize": 16, "fontWeight": 500, "color": "tokens.colors.text-primary" }
-            },
-            {
-              "type": "button",
-              "name": "GetStarted",
-              "x": 360,
-              "y": 0,
-              "width": 120,
-              "height": 44,
-              "style": {
-                "background": "tokens.colors.primary",
-                "color": "#FFFFFF",
-                "fontSize": 16,
-                "fontWeight": 600,
-                "radius": "tokens.radii.button"
-              },
-              "states": {
-                "hover": { "background": "tokens.colors.primary-dark" }
-              }
-            }
-          ]
-        }
-      ]
-    },
-
-    {
-      "type": "component",
-      "name": "SearchBar",
-      "frame": { "x": 0, "y": 0, "width": 800, "height": 56 },
-      "style": {
-        "background": "tokens.colors.card",
-        "border": { "color": "tokens.colors.muted-border", "width": 1 },
-        "radius": "tokens.radii.input",
-        "shadow": "tokens.shadows.card"
-      },
-      "children": [
-        {
-          "type": "icon",
-          "name": "SearchIcon",
-          "asset": "assets/icon-search.svg",
-          "x": 16,
-          "y": 16,
-          "width": 24,
-          "height": 24,
-          "style": { "color": "tokens.colors.muted-border" }
-        },
-        {
-          "type": "input",
-          "name": "SearchInput",
-          "x": 56,
-          "y": 12,
-          "width": 544,
-          "height": 32,
-          "style": {
-            "placeholder": "Enter ingredients, e.g., chicken, tomato",
-            "fontSize": 16,
-            "fontFamily": "tokens.typography.font-family",
-            "color": "tokens.colors.text-primary"
-          }
-        },
-        {
-          "type": "button",
-          "name": "SearchButton",
-          "x": 620,
-          "y": 8,
-          "width": 140,
-          "height": 40,
-          "style": {
-            "background": "tokens.colors.primary",
-            "color": "#FFFFFF",
-            "fontSize": 16,
-            "fontWeight": 600,
-            "radius": 8
-          },
-          "states": { "hover": { "background": "tokens.colors.primary-dark" } }
-        }
-      ]
-    },
-
-    {
-      "type": "component",
-      "name": "RecipeCard",
-      "frame": { "x": 0, "y": 0, "width": 340, "height": 380 },
-      "style": {
-        "background": "tokens.colors.card",
-        "radius": "tokens.radii.card",
-        "shadow": "tokens.shadows.card",
-        "padding": 16
-      },
-      "children": [
-        {
-          "type": "image",
-          "name": "CardImage",
-          "asset": "assets/recipe-1",
-          "x": 0,
-          "y": 0,
-          "width": 340,
-          "height": 210,
-          "style": { "radiusTopLeft": 12, "radiusTopRight": 12, "objectFit": "cover" }
-        },
-        {
-          "type": "text",
-          "name": "CardTitle",
-          "x": 16,
-          "y": 230,
-          "width": 308,
-          "height": 26,
-          "style": { "text": "3-Ingredient Pasta", "fontSize": 18, "fontWeight": 600, "color": "tokens.colors.text-primary" }
-        },
-        {
-          "type": "group",
-          "name": "MetaRow",
-          "x": 16,
-          "y": 262,
-          "width": 308,
-          "height": 18,
-          "children": [
-            {
-              "type": "icon",
-              "name": "ClockIcon",
-              "asset": "assets/icon-clock.svg",
-              "x": 0,
-              "y": 0,
-              "width": 14,
-              "height": 14
-            },
-            {
-              "type": "text",
-              "name": "TimeText",
-              "x": 20,
-              "y": 0,
-              "width": 70,
-              "height": 18,
-              "style": { "text": "⏱ 20 mins", "fontSize": 14, "color": "tokens.colors.text-secondary" }
-            },
-            {
-              "type": "icon",
-              "name": "ServingsIcon",
-              "asset": "assets/icon-servings.svg",
-              "x": 110,
-              "y": 0,
-              "width": 14,
-              "height": 14
-            },
-            {
-              "type": "text",
-              "name": "ServingsText",
-              "x": 130,
-              "y": 0,
-              "width": 100,
-              "height": 18,
-              "style": { "text": "🍽 Easy", "fontSize": 14, "color": "tokens.colors.text-secondary" }
-            }
-          ]
-        },
-        {
-          "type": "text",
-          "name": "CardDescription",
-          "x": 16,
-          "y": 286,
-          "width": 308,
-          "height": 40,
-          "style": { "text": "A quick pasta made with pantry staples. Ready in 15 minutes.", "fontSize": 14, "color": "tokens.colors.text-secondary", "maxLines": 2 }
-        },
-        {
-          "type": "group",
-          "name": "CardActions",
-          "x": 16,
-          "y": 336,
-          "width": 308,
-          "height": 40,
-          "children": [
-            {
-              "type": "button",
-              "name": "ViewRecipe",
-              "x": 0,
-              "y": 0,
-              "width": 140,
-              "height": 36,
-              "style": {
-                "background": "transparent",
-                "border": { "color": "tokens.colors.primary", "width": 1 },
-                "color": "tokens.colors.primary",
-                "fontSize": 14,
-                "radius": 8
-              }
-            },
-            {
-              "type": "icon-button",
-              "name": "Favorite",
-              "asset": "assets/icon-heart.svg",
-              "x": 164,
-              "y": 0,
-              "width": 40,
-              "height": 40,
-              "style": { "background": "#FFF5F2", "radius": 999 }
-            }
-          ]
-        }
-      ]
-    }
-  ],
-
-  "frames": [
-    {
-      "type": "frame",
-      "name": "Landing Page (Desktop)",
-      "width": 1440,
-      "height": 1024,
-      "background": "tokens.colors.background",
-      "children": [
-        {
-          "ref": "Header",
+          "type": "FRAME",
+          "name": "Header",
           "x": 80,
-          "y": 0
+          "y": 0,
+          "width": 1280,
+          "height": 80,
+          "fills": [{ "type": "SOLID", "color": { "r": 1, "g": 1, "b": 1 } }],
+          "children": [
+            {
+              "type": "TEXT",
+              "name": "Logo",
+              "x": 0,
+              "y": 24,
+              "width": 220,
+              "height": 32,
+              "characters": "Recipe Finder",
+              "fontName": { "family": "Poppins", "style": "Bold" },
+              "fontSize": 20,
+              "lineHeight": { "unit": "PIXELS", "value": 24 },
+              "fills": [{ "type": "SOLID", "color": { "r": 1, "g": 0.439, "b": 0.263 } }]
+            },
+            {
+              "type": "FRAME",
+              "name": "NavLinks",
+              "x": 760,
+              "y": 24,
+              "width": 420,
+              "height": 32,
+              "layoutMode": "HORIZONTAL",
+              "primaryAxisSpacing": 24,
+              "children": [
+                {
+                  "type": "TEXT",
+                  "name": "Home",
+                  "characters": "Home",
+                  "fontName": { "family": "Poppins", "style": "Medium" },
+                  "fontSize": 16,
+                  "fills": [{ "type": "SOLID", "color": { "r": 0.129, "g": 0.129, "b": 0.129 } }]
+                },
+                {
+                  "type": "TEXT",
+                  "name": "Search Recipes",
+                  "characters": "Search Recipes",
+                  "fontName": { "family": "Poppins", "style": "Medium" },
+                  "fontSize": 16,
+                  "fills": [{ "type": "SOLID", "color": { "r": 0.129, "g": 0.129, "b": 0.129 } }]
+                },
+                {
+                  "type": "TEXT",
+                  "name": "Favorites",
+                  "characters": "Favorites",
+                  "fontName": { "family": "Poppins", "style": "Medium" },
+                  "fontSize": 16,
+                  "fills": [{ "type": "SOLID", "color": { "r": 0.129, "g": 0.129, "b": 0.129 } }]
+                },
+                {
+                  "type": "RECTANGLE",
+                  "name": "GetStarted",
+                  "x": 360,
+                  "y": 0,
+                  "width": 120,
+                  "height": 44,
+                  "fills": [{ "type": "SOLID", "color": { "r": 1, "g": 0.439, "b": 0.263 } }],
+                  "cornerRadius": 8,
+                  "children": [
+                    {
+                      "type": "TEXT",
+                      "name": "ButtonLabel",
+                      "x": 24,
+                      "y": 12,
+                      "width": 72,
+                      "height": 20,
+                      "characters": "Get started",
+                      "fontName": { "family": "Poppins", "style": "SemiBold" },
+                      "fontSize": 16,
+                      "fills": [{ "type": "SOLID", "color": { "r": 1, "g": 1, "b": 1 } }],
+                      "textAlignHorizontal": "CENTER"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
         },
+        /* ---------- 2.  Hero  ---------- */
         {
-          "type": "frame",
+          "type": "FRAME",
           "name": "Hero",
           "x": 80,
           "y": 96,
           "width": 1280,
           "height": 420,
-          "style": {
-            "background": "linear-gradient(90deg,#FFF3E0 0%,#FAFAFA 100%)",
-            "radius": 12
-          },
+          "fills": [
+            {
+              "type": "GRADIENT_LINEAR",
+              "gradientStops": [
+                { "position": 0, "color": { "r": 1, "g": 0.953, "b": 0.878 } },
+                { "position": 1, "color": { "r": 0.98, "g": 0.98, "b": 0.98 } }
+              ]
+            }
+          ],
+          "cornerRadius": 12,
           "children": [
             {
-              "type": "frame",
-              "name": "HeroColumns",
+              "type": "FRAME",
+              "name": "HeroLeft",
               "x": 0,
               "y": 0,
-              "width": 1280,
+              "width": 768,
               "height": 420,
               "children": [
                 {
-                  "type": "frame",
-                  "name": "HeroLeft",
+                  "type": "RECTANGLE",
+                  "name": "PillTryNow",
                   "x": 0,
-                  "y": 0,
-                  "width": 768,
-                  "height": 420,
+                  "y": 28,
+                  "width": 72,
+                  "height": 28,
+                  "fills": [{ "type": "SOLID", "color": { "r": 1, "g": 0.835, "b": 0.31 } }],
+                  "cornerRadius": 999,
                   "children": [
                     {
-                      "type": "pill",
-                      "name": "PillTryNow",
-                      "x": 0,
-                      "y": 28,
-                      "width": 72,
-                      "height": 28,
-                      "style": { "background": "tokens.colors.accent", "color": "tokens.colors.text-primary", "radius": "tokens.radii.pill", "text": "Try now", "fontSize": 14, "fontWeight": 700 }
-                    },
-                    {
-                      "type": "text",
-                      "name": "HeroTitle",
-                      "x": 0,
-                      "y": 64,
-                      "width": 640,
-                      "height": 88,
-                      "style": {
-                        "text": "Find recipes with what you already have",
-                        "fontSize": 36,
-                        "fontWeight": 600,
-                        "lineHeight": 44,
-                        "color": "tokens.colors.text-primary"
-                      }
-                    },
-                    {
-                      "type": "text",
-                      "name": "HeroSubtext",
-                      "x": 0,
-                      "y": 156,
-                      "width": 640,
-                      "height": 56,
-                      "style": {
-                        "text": "Enter ingredients (e.g., chicken, tomato) and discover quick, delicious meals tailored to your diet.",
-                        "fontSize": 18,
-                        "fontWeight": 400,
-                        "color": "tokens.colors.text-secondary"
-                      }
-                    },
-                    {
-                      "ref": "SearchBar",
-                      "x": 0,
-                      "y": 220
-                    },
-                    {
-                      "type": "group",
-                      "name": "QuickTagsRow",
-                      "x": 0,
-                      "y": 292,
-                      "width": 640,
-                      "height": 40,
-                      "children": [
-                        { "type": "chip", "name": "Tag1", "x": 0, "y": 0, "width": 120, "height": 36, "style": { "text": "Vegetarian", "background": "#FAFAFA", "border": "tokens.colors.muted-border", "radius": 999 } },
-                        { "type": "chip", "name": "Tag2", "x": 136, "y": 0, "width": 80, "height": 36, "style": { "text": "30 mins", "background": "#FAFAFA", "border": "tokens.colors.muted-border", "radius": 999 } },
-                        { "type": "chip", "name": "Tag3", "x": 232, "y": 0, "width": 112, "height": 36, "style": { "text": "Dessert", "background": "#FAFAFA", "border": "tokens.colors.muted-border", "radius": 999 } }
-                      ]
+                      "type": "TEXT",
+                      "name": "PillText",
+                      "x": 12,
+                      "y": 6,
+                      "width": 48,
+                      "height": 16,
+                      "characters": "Try now",
+                      "fontName": { "family": "Poppins", "style": "Bold" },
+                      "fontSize": 14,
+                      "fills": [{ "type": "SOLID", "color": { "r": 0.129, "g": 0.129, "b": 0.129 } }],
+                      "textAlignHorizontal": "CENTER"
                     }
                   ]
                 },
                 {
-                  "type": "frame",
-                  "name": "HeroRight",
-                  "x": 768,
-                  "y": 0,
-                  "width": 512,
-                  "height": 420,
+                  "type": "TEXT",
+                  "name": "HeroTitle",
+                  "x": 0,
+                  "y": 64,
+                  "width": 640,
+                  "height": 88,
+                  "characters": "Find recipes with what you already have",
+                  "fontName": { "family": "Poppins", "style": "SemiBold" },
+                  "fontSize": 36,
+                  "lineHeight": { "unit": "PIXELS", "value": 44 },
+                  "fills": [{ "type": "SOLID", "color": { "r": 0.129, "g": 0.129, "b": 0.129 } }]
+                },
+                {
+                  "type": "TEXT",
+                  "name": "HeroSubtext",
+                  "x": 0,
+                  "y": 156,
+                  "width": 640,
+                  "height": 56,
+                  "characters": "Enter ingredients (e.g., chicken, tomato) and discover quick, delicious meals tailored to your diet.",
+                  "fontName": { "family": "Poppins", "style": "Regular" },
+                  "fontSize": 18,
+                  "lineHeight": { "unit": "PIXELS", "value": 28 },
+                  "fills": [{ "type": "SOLID", "color": { "r": 0.459, "g": 0.459, "b": 0.459 } }]
+                },
+                /* ----------  SearchBar  ---------- */
+                {
+                  "type": "FRAME",
+                  "name": "SearchBar",
+                  "x": 0,
+                  "y": 220,
+                  "width": 800,
+                  "height": 56,
+                  "fills": [{ "type": "SOLID", "color": { "r": 1, "g": 1, "b": 1 } }],
+                  "strokes": [{ "type": "SOLID", "color": { "r": 0.878, "g": 0.878, "b": 0.878 } }],
+                  "strokeWeight": 1,
+                  "cornerRadius": 10,
+                  "effects": [{ "type": "DROP_SHADOW", "color": { "r": 0, "g": 0, "b": 0, "a": 0.06 }, "offset": { "x": 0, "y": 6 }, "radius": 18 }],
                   "children": [
                     {
-                      "type": "image",
-                      "name": "HeroImage",
-                      "asset": "assets/hero",
-                      "x": 0,
-                      "y": 0,
-                      "width": 512,
-                      "height": 360,
-                      "style": { "radius": 16, "objectFit": "cover", "alt": "Plate of food" }
+                      "type": "RECTANGLE",
+                      "name": "SearchIcon",
+                      "x": 16,
+                      "y": 16,
+                      "width": 24,
+                      "height": 24,
+                      "fills": [{ "type": "SOLID", "color": { "r": 0.878, "g": 0.878, "b": 0.878 } }]
                     },
                     {
-                      "type": "card",
-                      "name": "HeroFeaturedMini",
-                      "x": 24,
-                      "y": 260,
-                      "width": 320,
-                      "height": 80,
-                      "style": { "background": "tokens.colors.card", "radius": 12, "shadow": "tokens.shadows.card" },
+                      "type": "TEXT",
+                      "name": "SearchInput",
+                      "x": 56,
+                      "y": 12,
+                      "width": 544,
+                      "height": 32,
+                      "characters": "Enter ingredients, e.g., chicken, tomato",
+                      "fontName": { "family": "Poppins", "style": "Regular" },
+                      "fontSize": 16,
+                      "fills": [{ "type": "SOLID", "color": { "r": 0.129, "g": 0.129, "b": 0.129 } }],
+                      "textAutoResize": "WIDTH_AND_HEIGHT"
+                    },
+                    {
+                      "type": "RECTANGLE",
+                      "name": "SearchButton",
+                      "x": 620,
+                      "y": 8,
+                      "width": 140,
+                      "height": 40,
+                      "fills": [{ "type": "SOLID", "color": { "r": 1, "g": 0.439, "b": 0.263 } }],
+                      "cornerRadius": 8,
                       "children": [
-                        { "type": "text", "name": "MiniTitle", "x": 16, "y": 16, "width": 200, "height": 20, "style": { "text": "Featured: 3-ingredient pasta", "fontSize": 14, "fontWeight": 600 } },
-                        { "type": "text", "name": "MiniCTA", "x": 16, "y": 36, "width": 200, "height": 20, "style": { "text": "View recipe", "fontSize": 12, "fontWeight": 600, "color": "tokens.colors.primary" } }
+                        {
+                          "type": "TEXT",
+                          "name": "ButtonText",
+                          "x": 32,
+                          "y": 10,
+                          "width": 76,
+                          "height": 20,
+                          "characters": "Search",
+                          "fontName": { "family": "Poppins", "style": "SemiBold" },
+                          "fontSize": 16,
+                          "fills": [{ "type": "SOLID", "color": { "r": 1, "g": 1, "b": 1 } }],
+                          "textAlignHorizontal": "CENTER"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                /* ----------  Quick Tags  ---------- */
+                {
+                  "type": "FRAME",
+                  "name": "QuickTagsRow",
+                  "x": 0,
+                  "y": 292,
+                  "width": 640,
+                  "height": 40,
+                  "layoutMode": "HORIZONTAL",
+                  "primaryAxisSpacing": 16,
+                  "children": [
+                    {
+                      "type": "RECTANGLE",
+                      "name": "Tag1",
+                      "width": 120,
+                      "height": 36,
+                      "fills": [{ "type": "SOLID", "color": { "r": 0.98, "g": 0.98, "b": 0.98 } }],
+                      "strokes": [{ "type": "SOLID", "color": { "r": 0.878, "g": 0.878, "b": 0.878 } }],
+                      "strokeWeight": 1,
+                      "cornerRadius": 999,
+                      "children": [
+                        {
+                          "type": "TEXT",
+                          "name": "Tag1Text",
+                          "x": 16,
+                          "y": 8,
+                          "width": 88,
+                          "height": 20,
+                          "characters": "Vegetarian",
+                          "fontName": { "family": "Poppins", "style": "Regular" },
+                          "fontSize": 14,
+                          "fills": [{ "type": "SOLID", "color": { "r": 0.129, "g": 0.129, "b": 0.129 } }],
+                          "textAlignHorizontal": "CENTER"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "RECTANGLE",
+                      "name": "Tag2",
+                      "width": 80,
+                      "height": 36,
+                      "fills": [{ "type": "SOLID", "color": { "r": 0.98, "g": 0.98, "b": 0.98 } }],
+                      "strokes": [{ "type": "SOLID", "color": { "r": 0.878, "g": 0.878, "b": 0.878 } }],
+                      "strokeWeight": 1,
+                      "cornerRadius": 999,
+                      "children": [
+                        {
+                          "type": "TEXT",
+                          "name": "Tag2Text",
+                          "x": 12,
+                          "y": 8,
+                          "width": 56,
+                          "height": 20,
+                          "characters": "30 mins",
+                          "fontName": { "family": "Poppins", "style": "Regular" },
+                          "fontSize": 14,
+                          "fills": [{ "type": "SOLID", "color": { "r": 0.129, "g": 0.129, "b": 0.129 } }],
+                          "textAlignHorizontal": "CENTER"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "RECTANGLE",
+                      "name": "Tag3",
+                      "width": 112,
+                      "height": 36,
+                      "fills": [{ "type": "SOLID", "color": { "r": 0.98, "g": 0.98, "b": 0.98 } }],
+                      "strokes": [{ "type": "SOLID", "color": { "r": 0.878, "g": 0.878, "b": 0.878 } }],
+                      "strokeWeight": 1,
+                      "cornerRadius": 999,
+                      "children": [
+                        {
+                          "type": "TEXT",
+                          "name": "Tag3Text",
+                          "x": 16,
+                          "y": 8,
+                          "width": 80,
+                          "height": 20,
+                          "characters": "Dessert",
+                          "fontName": { "family": "Poppins", "style": "Regular" },
+                          "fontSize": 14,
+                          "fills": [{ "type": "SOLID", "color": { "r": 0.129, "g": 0.129, "b": 0.129 } }],
+                          "textAlignHorizontal": "CENTER"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "FRAME",
+              "name": "HeroRight",
+              "x": 768,
+              "y": 0,
+              "width": 512,
+              "height": 420,
+              "children": [
+                {
+                  "type": "RECTANGLE",
+                  "name": "HeroImage",
+                  "x": 0,
+                  "y": 0,
+                  "width": 512,
+                  "height": 360,
+                  "fills": [{ "type": "IMAGE", "image": "assets/hero-plate@2x.jpg" }],
+                  "cornerRadius": 16
+                },
+                {
+                  "type": "FRAME",
+                  "name": "HeroFeaturedMini",
+                  "x": 24,
+                  "y": 260,
+                  "width": 320,
+                  "height": 80,
+                  "fills": [{ "type": "SOLID", "color": { "r": 1, "g": 1, "b": 1 } }],
+                  "cornerRadius": 12,
+                  "effects": [{ "type": "DROP_SHADOW", "color": { "r": 0, "g": 0, "b": 0, "a": 0.06 }, "offset": { "x": 0, "y": 6 }, "radius": 18 }],
+                  "children": [
+                    {
+                      "type": "TEXT",
+                      "name": "MiniTitle",
+                      "x": 16,
+                      "y": 16,
+                      "width": 200,
+                      "height": 20,
+                      "characters": "Featured: 3-ingredient pasta",
+                      "fontName": { "family": "Poppins", "style": "SemiBold" },
+                      "fontSize": 14,
+                      "fills": [{ "type": "SOLID", "color": { "r": 0.129, "g": 0.129, "b": 0.129 } }]
+                    },
+                    {
+                      "type": "TEXT",
+                      "name": "MiniCTA",
+                      "x": 16,
+                      "y": 36,
+                      "width": 200,
+                      "height": 20,
+                      "characters": "View recipe",
+                      "fontName": { "family": "Poppins", "style": "SemiBold" },
+                      "fontSize": 12,
+                      "fills": [{ "type": "SOLID", "color": { "r": 1, "g": 0.439, "b": 0.263 } }]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        /* ---------- 3.  Featured Recipes  ---------- */
+        {
+          "type": "FRAME",
+          "name": "Featured Recipes Section",
+          "x": 80,
+          "y": 540,
+          "width": 1280,
+          "height": 460,
+          "children": [
+            {
+              "type": "TEXT",
+              "name": "FeaturedTitle",
+              "x": 0,
+              "y": 0,
+              "width": 400,
+              "height": 28,
+              "characters": "Featured Recipes",
+              "fontName": { "family": "Poppins", "style": "SemiBold" },
+              "fontSize": 24,
+              "fills": [{ "type": "SOLID", "color": { "r": 0.129, "g": 0.129, "b": 0.129 } }]
+            },
+            {
+              "type": "TEXT",
+              "name": "FeaturedSubtitle",
+              "x": 0,
+              "y": 36,
+              "width": 640,
+              "height": 20,
+              "characters": "Hand-picked recipes based on trending ingredients",
+              "fontName": { "family": "Poppins", "style": "Regular" },
+              "fontSize": 16,
+              "fills": [{ "type": "SOLID", "color": { "r": 0.459, "g": 0.459, "b": 0.459 } }]
+            },
+            {
+              "type": "FRAME",
+              "name": "FeaturedGrid",
+              "x": 0,
+              "y": 72,
+              "width": 1280,
+              "height": 360,
+              "layoutMode": "HORIZONTAL",
+              "primaryAxisSpacing": 24,
+              "children": [
+                /* ----------  RecipeCard-1  ---------- */
+                {
+                  "type": "FRAME",
+                  "name": "RecipeCard-1",
+                  "width": 340,
+                  "height": 380,
+                  "fills": [{ "type": "SOLID", "color": { "r": 1, "g": 1, "b": 1 } }],
+                  "cornerRadius": 12,
+                  "effects": [{ "type": "DROP_SHADOW", "color": { "r": 0, "g": 0, "b": 0, "a": 0.06 }, "offset": { "x": 0, "y": 6 }, "radius": 18 }],
+                  "children": [
+                    {
+                      "type": "RECTANGLE",
+                      "name": "CardImage",
+                      "x": 0,
+                      "y": 0,
+                      "width": 340,
+                      "height": 210,
+                      "fills": [{ "type": "IMAGE", "image": "assets/recipe-card-1@2x.jpg" }],
+                      "cornerRadius": { "topLeft": 12, "topRight": 12 }
+                    },
+                    {
+                      "type": "TEXT",
+                      "name": "CardTitle",
+                      "x": 16,
+                      "y": 230,
+                      "width": 308,
+                      "height": 26,
+                      "characters": "3-Ingredient Pasta",
+                      "fontName": { "family": "Poppins", "style": "SemiBold" },
+                      "fontSize": 18,
+                      "fills": [{ "type": "SOLID", "color": { "r": 0.129, "g": 0.129, "b": 0.129 } }]
+                    },
+                    {
+                      "type": "FRAME",
+                      "name": "MetaRow",
+                      "x": 16,
+                      "y": 262,
+                      "width": 308,
+                      "height": 18,
+                      "layoutMode": "HORIZONTAL",
+                      "primaryAxisSpacing": 8,
+                      "children": [
+                        {
+                          "type": "RECTANGLE",
+                          "name": "ClockIcon",
+                          "width": 14,
+                          "height": 14,
+                          "fills": [{ "type": "SOLID", "color": { "r": 0.459, "g": 0.459, "b": 0.459 } }]
+                        },
+                        {
+                          "type": "TEXT",
+                          "name": "TimeText",
+                          "width": 70,
+                          "height": 18,
+                          "characters": "⏱ 20 mins",
+                          "fontName": { "family": "Poppins", "style": "Regular" },
+                          "fontSize": 14,
+                          "fills": [{ "type": "SOLID", "color": { "r": 0.459, "g": 0.459, "b": 0.459 } }]
+                        },
+                        {
+                          "type": "RECTANGLE",
+                          "name": "ServingsIcon",
+                          "width": 14,
+                          "height": 14,
+                          "fills": [{ "type": "SOLID", "color": { "r": 0.459, "g": 0.459, "b": 0.459 } }]
+                        },
+                        {
+                          "type": "TEXT",
+                          "name": "ServingsText",
+                          "width": 100,
+                          "height": 18,
+                          "characters": "🍽 Easy",
+                          "fontName": { "family": "Poppins", "style": "Regular" },
+                          "fontSize": 14,
+                          "fills": [{ "type": "SOLID", "color": { "r": 0.459, "g": 0.459, "b": 0.459 } }]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "TEXT",
+                      "name": "CardDescription",
+                      "x": 16,
+                      "y": 286,
+                      "width": 308,
+                      "height": 40,
+                      "characters": "A quick pasta made with pantry staples. Ready in 15 minutes.",
+                      "fontName": { "family": "Poppins", "style": "Regular" },
+                      "fontSize": 14,
+                      "lineHeight": { "unit": "PIXELS", "value": 20 },
+                      "fills": [{ "type": "SOLID", "color": { "r": 0.459, "g": 0.459, "b": 0.459 } }]
+                    },
+                    {
+                      "type": "FRAME",
+                      "name": "CardActions",
+                      "x": 16,
+                      "y": 336,
+                      "width": 308,
+                      "height": 40,
+                      "layoutMode": "HORIZONTAL",
+                      "primaryAxisSpacing": 24,
+                      "children": [
+                        {
+                          "type": "RECTANGLE",
+                          "name": "ViewRecipe",
+                          "width": 140,
+                          "height": 36,
+                          "fills": [],
+                          "strokes": [{ "type": "SOLID", "color": { "r": 1, "g": 0.439, "b": 0.263 } }],
+                          "strokeWeight": 1,
+                          "cornerRadius": 8,
+                          "children": [
+                            {
+                              "type": "TEXT",
+                              "name": "ViewRecipeLabel",
+                              "x": 24,
+                              "y": 8,
+                              "width": 92,
+                              "height": 20,
+                              "characters": "View recipe",
+                              "fontName": { "family": "Poppins", "style": "Regular" },
+                              "fontSize": 14,
+                              "fills": [{ "type": "SOLID", "color": { "r": 1, "g": 0.439, "b": 0.263 } }],
+                              "textAlignHorizontal": "CENTER"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "RECTANGLE",
+                          "name": "Favorite",
+                          "width": 40,
+                          "height": 40,
+                          "fills": [{ "type": "SOLID", "color": { "r": 1, "g": 0.96, "b": 0.949 } }],
+                          "cornerRadius": 999,
+                          "children": [
+                            {
+                              "type": "RECTANGLE",
+                              "name": "HeartIcon",
+                              "x": 8,
+                              "y": 8,
+                              "width": 24,
+                              "height": 24,
+                              "fills": [{ "type": "SOLID", "color": { "r": 1, "g": 0.439, "b": 0.263 } }]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                /* ----------  RecipeCard-2  ---------- */
+                {
+                  "type": "FRAME",
+                  "name": "RecipeCard-2",
+                  "width": 340,
+                  "height": 380,
+                  "fills": [{ "type": "SOLID", "color": { "r": 1, "g": 1, "b": 1 } }],
+                  "cornerRadius": 12,
+                  "effects": [{ "type": "DROP_SHADOW", "color": { "r": 0, "g": 0, "b": 0, "a": 0.06 }, "offset": { "x": 0, "y": 6 }, "radius": 18 }],
+                  "children": [
+                    {
+                      "type": "RECTANGLE",
+                      "name": "CardImage",
+                      "x": 0,
+                      "y": 0,
+                      "width": 340,
+                      "height": 210,
+                      "fills": [{ "type": "IMAGE", "image": "assets/recipe-card-2@2x.jpg" }],
+                      "cornerRadius": { "topLeft": 12, "topRight": 12 }
+                    },
+                    {
+                      "type": "TEXT",
+                      "name": "CardTitle",
+                      "x": 16,
+                      "y": 230,
+                      "width": 308,
+                      "height": 26,
+                      "characters": "Spicy Tomato Stew",
+                      "fontName": { "family": "Poppins", "style": "SemiBold" },
+                      "fontSize": 18,
+                      "fills": [{ "type": "SOLID", "color": { "r": 0.129, "g": 0.129, "b": 0.129 } }]
+                    },
+                    {
+                      "type": "FRAME",
+                      "name": "MetaRow",
+                      "x": 16,
+                      "y": 262,
+                      "width": 308,
+                      "height": 18,
+                      "layoutMode": "HORIZONTAL",
+                      "primaryAxisSpacing": 8,
+                      "children": [
+                        {
+                          "type": "RECTANGLE",
+                          "name": "ClockIcon",
+                          "width": 14,
+                          "height": 14,
+                          "fills": [{ "type": "SOLID", "color": { "r": 0.459, "g": 0.459, "b": 0.459 } }]
+                        },
+                        {
+                          "type": "TEXT",
+                          "name": "TimeText",
+                          "width": 70,
+                          "height": 18,
+                          "characters": "⏱ 35 mins",
+                          "fontName": { "family": "Poppins", "style": "Regular" },
+                          "fontSize": 14,
+                          "fills": [{ "type": "SOLID", "color": { "r": 0.459, "g": 0.459, "b": 0.459 } }]
+                        },
+                        {
+                          "type": "RECTANGLE",
+                          "name": "ServingsIcon",
+                          "width": 14,
+                          "height": 14,
+                          "fills": [{ "type": "SOLID", "color": { "r": 0.459, "g": 0.459, "b": 0.459 } }]
+                        },
+                        {
+                          "type": "TEXT",
+                          "name": "ServingsText",
+                          "width": 100,
+                          "height": 18,
+                          "characters": "🍽 Medium",
+                          "fontName": { "family": "Poppins", "style": "Regular" },
+                          "fontSize": 14,
+                          "fills": [{ "type": "SOLID", "color": { "r": 0.459, "g": 0.459, "b": 0.459 } }]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "TEXT",
+                      "name": "CardDescription",
+                      "x": 16,
+                      "y": 286,
+                      "width": 308,
+                      "height": 40,
+                      "characters": "Hearty stew with spices and fresh tomatoes.",
+                      "fontName": { "family": "Poppins", "style": "Regular" },
+                      "fontSize": 14,
+                      "lineHeight": { "unit": "PIXELS", "value": 20 },
+                      "fills": [{ "type": "SOLID", "color": { "r": 0.459, "g": 0.459, "b": 0.459 } }]
+                    },
+                    {
+                      "type": "FRAME",
+                      "name": "CardActions",
+                      "x": 16,
+                      "y": 336,
+                      "width": 308,
+                      "height": 40,
+                      "layoutMode": "HORIZONTAL",
+                      "primaryAxisSpacing": 24,
+                      "children": [
+                        {
+                          "type": "RECTANGLE",
+                          "name": "ViewRecipe",
+                          "width": 140,
+                          "height": 36,
+                          "fills": [],
+                          "strokes": [{ "type": "SOLID", "color": { "r": 1, "g": 0.439, "b": 0.263 } }],
+                          "strokeWeight": 1,
+                          "cornerRadius": 8,
+                          "children": [
+                            {
+                              "type": "TEXT",
+                              "name": "ViewRecipeLabel",
+                              "x": 24,
+                              "y": 8,
+                              "width": 92,
+                              "height": 20,
+                              "characters": "View recipe",
+                              "fontName": { "family": "Poppins", "style": "Regular" },
+                              "fontSize": 14,
+                              "fills": [{ "type": "SOLID", "color": { "r": 1, "g": 0.439, "b": 0.263 } }],
+                              "textAlignHorizontal": "CENTER"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "RECTANGLE",
+                          "name": "Favorite",
+                          "width": 40,
+                          "height": 40,
+                          "fills": [{ "type": "SOLID", "color": { "r": 1, "g": 0.96, "b": 0.949 } }],
+                          "cornerRadius": 999,
+                          "children": [
+                            {
+                              "type": "RECTANGLE",
+                              "name": "HeartIcon",
+                              "x": 8,
+                              "y": 8,
+                              "width": 24,
+                              "height": 24,
+                              "fills": [{ "type": "SOLID", "color": { "r": 1, "g": 0.439, "b": 0.263 } }]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                /* ----------  RecipeCard-3  ---------- */
+                {
+                  "type": "FRAME",
+                  "name": "RecipeCard-3",
+                  "width": 340,
+                  "height": 380,
+                  "fills": [{ "type": "SOLID", "color": { "r": 1, "g": 1, "b": 1 } }],
+                  "cornerRadius": 12,
+                  "effects": [{ "type": "DROP_SHADOW", "color": { "r": 0, "g": 0, "b": 0, "a": 0.06 }, "offset": { "x": 0, "y": 6 }, "radius": 18 }],
+                  "children": [
+                    {
+                      "type": "RECTANGLE",
+                      "name": "CardImage",
+                      "x": 0,
+                      "y": 0,
+                      "width": 340,
+                      "height": 210,
+                      "fills": [{ "type": "IMAGE", "image": "assets/recipe-card-3@2x.jpg" }],
+                      "cornerRadius": { "topLeft": 12, "topRight": 12 }
+                    },
+                    {
+                      "type": "TEXT",
+                      "name": "CardTitle",
+                      "x": 16,
+                      "y": 230,
+                      "width": 308,
+                      "height": 26,
+                      "characters": "Avocado Toast Deluxe",
+                      "fontName": { "family": "Poppins", "style": "SemiBold" },
+                      "fontSize": 18,
+                      "fills": [{ "type": "SOLID", "color": { "r": 0.129, "g": 0.129, "b": 0.129 } }]
+                    },
+                    {
+                      "type": "FRAME",
+                      "name": "MetaRow",
+                      "x": 16,
+                      "y": 262,
+                      "width": 308,
+                      "height": 18,
+                      "layoutMode": "HORIZONTAL",
+                      "primaryAxisSpacing": 8,
+                      "children": [
+                        {
+                          "type": "RECTANGLE",
+                          "name": "ClockIcon",
+                          "width": 14,
+                          "height": 14,
+                          "fills": [{ "type": "SOLID", "color": { "r": 0.459, "g": 0.459, "b": 0.459 } }]
+                        },
+                        {
+                          "type": "TEXT",
+                          "name": "TimeText",
+                          "width": 70,
+                          "height": 18,
+                          "characters": "⏱ 10 mins",
+                          "fontName": { "family": "Poppins", "style": "Regular" },
+                          "fontSize": 14,
+                          "fills": [{ "type": "SOLID", "color": { "r": 0.459, "g": 0.459, "b": 0.459 } }]
+                        },
+                        {
+                          "type": "RECTANGLE",
+                          "name": "ServingsIcon",
+                          "width": 14,
+                          "height": 14,
+                          "fills": [{ "type": "SOLID", "color": { "r": 0.459, "g": 0.459, "b": 0.459 } }]
+                        },
+                        {
+                          "type": "TEXT",
+                          "name": "ServingsText",
+                          "width": 100,
+                          "height": 18,
+                          "characters": "🍽 Easy",
+                          "fontName": { "family": "Poppins", "style": "Regular" },
+                          "fontSize": 14,
+                          "fills": [{ "type": "SOLID", "color": { "r": 0.459, "g": 0.459, "b": 0.459 } }]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "TEXT",
+                      "name": "CardDescription",
+                      "x": 16,
+                      "y": 286,
+                      "width": 308,
+                      "height": 40,
+                      "characters": "Creamy avocado with herbs on toasted bread.",
+                      "fontName": { "family": "Poppins", "style": "Regular" },
+                      "fontSize": 14,
+                      "lineHeight": { "unit": "PIXELS", "value": 20 },
+                      "fills": [{ "type": "SOLID", "color": { "r": 0.459, "g": 0.459, "b": 0.459 } }]
+                    },
+                    {
+                      "type": "FRAME",
+                      "name": "CardActions",
+                      "x": 16,
+                      "y": 336,
+                      "width": 308,
+                      "height": 40,
+                      "layoutMode": "HORIZONTAL",
+                      "primaryAxisSpacing": 24,
+                      "children": [
+                        {
+                          "type": "RECTANGLE",
+                          "name": "ViewRecipe",
+                          "width": 140,
+                          "height": 36,
+                          "fills": [],
+                          "strokes": [{ "type": "SOLID", "color": { "r": 1, "g": 0.439, "b": 0.263 } }],
+                          "strokeWeight": 1,
+                          "cornerRadius": 8,
+                          "children": [
+                            {
+                              "type": "TEXT",
+                              "name": "ViewRecipeLabel",
+                              "x": 24,
+                              "y": 8,
+                              "width": 92,
+                              "height": 20,
+                              "characters": "View recipe",
+                              "fontName": { "family": "Poppins", "style": "Regular" },
+                              "fontSize": 14,
+                              "fills": [{ "type": "SOLID", "color": { "r": 1, "g": 0.439, "b": 0.263 } }],
+                              "textAlignHorizontal": "CENTER"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "RECTANGLE",
+                          "name": "Favorite",
+                          "width": 40,
+                          "height": 40,
+                          "fills": [{ "type": "SOLID", "color": { "r": 1, "g": 0.96, "b": 0.949 } }],
+                          "cornerRadius": 999,
+                          "children": [
+                            {
+                              "type": "RECTANGLE",
+                              "name": "HeartIcon",
+                              "x": 8,
+                              "y": 8,
+                              "width": 24,
+                              "height": 24,
+                              "fills": [{ "type": "SOLID", "color": { "r": 1, "g": 0.439, "b": 0.263 } }]
+                            }
+                          ]
+                        }
                       ]
                     }
                   ]
@@ -462,176 +876,191 @@
             }
           ]
         },
-
+        /* ---------- 4.  How It Works  ---------- */
         {
-          "type": "frame",
-          "name": "Featured Recipes Section",
-          "x": 80,
-          "y": 540,
-          "width": 1280,
-          "height": 460,
-          "children": [
-            {
-              "type": "text",
-              "name": "FeaturedTitle",
-              "x": 0,
-              "y": 0,
-              "width": 400,
-              "height": 28,
-              "style": { "text": "Featured Recipes", "fontSize": 24, "fontWeight": 600, "color": "tokens.colors.text-primary" }
-            },
-            {
-              "type": "text",
-              "name": "FeaturedSubtitle",
-              "x": 0,
-              "y": 36,
-              "width": 640,
-              "height": 20,
-              "style": { "text": "Hand-picked recipes based on trending ingredients", "fontSize": 16, "color": "tokens.colors.text-secondary" }
-            },
-            {
-              "type": "grid",
-              "name": "FeaturedGrid",
-              "x": 0,
-              "y": 72,
-              "width": 1280,
-              "height": 360,
-              "columns": 3,
-              "colGap": 24,
-              "rowGap": 24,
-              "children": [
-                { "ref": "RecipeCard", "x": 0, "y": 0, "overrides": { "CardImage.asset": "assets/recipe-1" } },
-                { "ref": "RecipeCard", "x": 364, "y": 0, "overrides": { "CardImage.asset": "assets/recipe-2", "CardTitle.text": "Spicy Tomato Stew", "CardDescription.text": "Hearty stew with spices and fresh tomatoes." } },
-                { "ref": "RecipeCard", "x": 728, "y": 0, "overrides": { "CardImage.asset": "assets/recipe-3", "CardTitle.text": "Avocado Toast Deluxe", "CardDescription.text": "Creamy avocado with herbs on toasted bread." } }
-              ]
-            }
-          ]
-        },
-
-        {
-          "type": "frame",
+          "type": "FRAME",
           "name": "How It Works",
           "x": 80,
           "y": 1020,
           "width": 1280,
           "height": 140,
+          "layoutMode": "HORIZONTAL",
+          "primaryAxisSpacing": 80,
           "children": [
             {
-              "type": "group",
+              "type": "FRAME",
               "name": "Step1",
-              "x": 0,
-              "y": 12,
               "width": 360,
               "height": 120,
+              "layoutMode": "HORIZONTAL",
+              "primaryAxisSpacing": 16,
               "children": [
-                { "type": "circle-icon", "name": "Step1Icon", "x": 0, "y": 0, "width": 56, "height": 56, "style": { "background": "#FFF3E0", "radius": 999 } },
-                { "type": "text", "name": "Step1Title", "x": 72, "y": 0, "width": 288, "height": 28, "style": { "text": "Search", "fontSize": 16, "fontWeight": 600 } },
-                { "type": "text", "name": "Step1Desc", "x": 72, "y": 36, "width": 288, "height": 40, "style": { "text": "Add ingredients and filters", "fontSize": 14, "color": "tokens.colors.text-secondary" } }
+                {
+                  "type": "ELLIPSE",
+                  "name": "Step1Icon",
+                  "width": 56,
+                  "height": 56,
+                  "fills": [{ "type": "SOLID", "color": { "r": 1, "g": 0.953, "b": 0.878 } }]
+                },
+                {
+                  "type": "FRAME",
+                  "name": "Step1Texts",
+                  "width": 288,
+                  "height": 120,
+                  "children": [
+                    {
+                      "type": "TEXT",
+                      "name": "Step1Title",
+                      "x": 0,
+                      "y": 0,
+                      "width": 288,
+                      "height": 28,
+                      "characters": "Search",
+                      "fontName": { "family": "Poppins", "style": "SemiBold" },
+                      "fontSize": 16,
+                      "fills": [{ "type": "SOLID", "color": { "r": 0.129, "g": 0.129, "b": 0.129 } }]
+                    },
+                    {
+                      "type": "TEXT",
+                      "name": "Step1Desc",
+                      "x": 0,
+                      "y": 36,
+                      "width": 288,
+                      "height": 40,
+                      "characters": "Add ingredients and filters",
+                      "fontName": { "family": "Poppins", "style": "Regular" },
+                      "fontSize": 14,
+                      "lineHeight": { "unit": "PIXELS", "value": 20 },
+                      "fills": [{ "type": "SOLID", "color": { "r": 0.459, "g": 0.459, "b": 0.459 } }]
+                    }
+                  ]
+                }
               ]
             },
             {
-              "type": "group",
+              "type": "FRAME",
               "name": "Step2",
-              "x": 440,
-              "y": 12,
               "width": 360,
               "height": 120,
+              "layoutMode": "HORIZONTAL",
+              "primaryAxisSpacing": 16,
               "children": [
-                { "type": "circle-icon", "name": "Step2Icon", "x": 0, "y": 0, "width": 56, "height": 56, "style": { "background": "#FFD54F", "radius": 999 } },
-                { "type": "text", "name": "Step2Title", "x": 72, "y": 0, "width": 288, "height": 28, "style": { "text": "Pick", "fontSize": 16, "fontWeight": 600 } },
-                { "type": "text", "name": "Step2Desc", "x": 72, "y": 36, "width": 288, "height": 40, "style": { "text": "Choose a recipe to view details", "fontSize": 14, "color": "tokens.colors.text-secondary" } }
+                {
+                  "type": "ELLIPSE",
+                  "name": "Step2Icon",
+                  "width": 56,
+                  "height": 56,
+                  "fills": [{ "type": "SOLID", "color": { "r": 1, "g": 0.835, "b": 0.31 } }]
+                },
+                {
+                  "type": "FRAME",
+                  "name": "Step2Texts",
+                  "width": 288,
+                  "height": 120,
+                  "children": [
+                    {
+                      "type": "TEXT",
+                      "name": "Step2Title",
+                      "x": 0,
+                      "y": 0,
+                      "width": 288,
+                      "height": 28,
+                      "characters": "Pick",
+                      "fontName": { "family": "Poppins", "style": "SemiBold" },
+                      "fontSize": 16,
+                      "fills": [{ "type": "SOLID", "color": { "r": 0.129, "g": 0.129, "b": 0.129 } }]
+                    },
+                    {
+                      "type": "TEXT",
+                      "name": "Step2Desc",
+                      "x": 0,
+                      "y": 36,
+                      "width": 288,
+                      "height": 40,
+                      "characters": "Choose a recipe to view details",
+                      "fontName": { "family": "Poppins", "style": "Regular" },
+                      "fontSize": 14,
+                      "lineHeight": { "unit": "PIXELS", "value": 20 },
+                      "fills": [{ "type": "SOLID", "color": { "r": 0.459, "g": 0.459, "b": 0.459 } }]
+                    }
+                  ]
+                }
               ]
             },
             {
-              "type": "group",
+              "type": "FRAME",
               "name": "Step3",
-              "x": 880,
-              "y": 12,
               "width": 360,
               "height": 120,
+              "layoutMode": "HORIZONTAL",
+              "primaryAxisSpacing": 16,
               "children": [
-                { "type": "circle-icon", "name": "Step3Icon", "x": 0, "y": 0, "width": 56, "height": 56, "style": { "background": "#C8F5D7", "radius": 999 } },
-                { "type": "text", "name": "Step3Title", "x": 72, "y": 0, "width": 288, "height": 28, "style": { "text": "Cook", "fontSize": 16, "fontWeight": 600 } },
-                { "type": "text", "name": "Step3Desc", "x": 72, "y": 36, "width": 288, "height": 40, "style": { "text": "Follow step-by-step instructions", "fontSize": 14, "color": "tokens.colors.text-secondary" } }
+                {
+                  "type": "ELLIPSE",
+                  "name": "Step3Icon",
+                  "width": 56,
+                  "height": 56,
+                  "fills": [{ "type": "SOLID", "color": { "r": 0.784, "g": 0.961, "b": 0.843 } }]
+                },
+                {
+                  "type": "FRAME",
+                  "name": "Step3Texts",
+                  "width": 288,
+                  "height": 120,
+                  "children": [
+                    {
+                      "type": "TEXT",
+                      "name": "Step3Title",
+                      "x": 0,
+                      "y": 0,
+                      "width": 288,
+                      "height": 28,
+                      "characters": "Cook",
+                      "fontName": { "family": "Poppins", "style": "SemiBold" },
+                      "fontSize": 16,
+                      "fills": [{ "type": "SOLID", "color": { "r": 0.129, "g": 0.129, "b": 0.129 } }]
+                    },
+                    {
+                      "type": "TEXT",
+                      "name": "Step3Desc",
+                      "x": 0,
+                      "y": 36,
+                      "width": 288,
+                      "height": 40,
+                      "characters": "Follow step-by-step instructions",
+                      "fontName": { "family": "Poppins", "style": "Regular" },
+                      "fontSize": 14,
+                      "lineHeight": { "unit": "PIXELS", "value": 20 },
+                      "fills": [{ "type": "SOLID", "color": { "r": 0.459, "g": 0.459, "b": 0.459 } }]
+                    }
+                  ]
+                }
               ]
             }
           ]
         },
-
+        /* ---------- 5.  Footer  ---------- */
         {
-          "type": "frame",
+          "type": "FRAME",
           "name": "Footer",
           "x": 0,
           "y": 1180,
           "width": 1440,
           "height": 100,
-          "style": { "background": "#FFF3E0" },
+          "fills": [{ "type": "SOLID", "color": { "r": 1, "g": 0.953, "b": 0.878 } }],
           "children": [
-            { "type": "text", "name": "FooterText", "x": 80, "y": 36, "width": 1280, "height": 28, "style": { "text": "© 2025 Recipe Finder — Built with ❤️ using React", "fontSize": 14, "color": "tokens.colors.text-primary", "align": "center" } }
-          ]
-        }
-      ]
-    },
-
-    {
-      "type": "frame",
-      "name": "Landing Page (Mobile)",
-      "width": 375,
-      "height": 812,
-      "background": "tokens.colors.background",
-      "children": [
-        {
-          "type": "frame",
-          "name": "MobileHeader",
-          "x": 0,
-          "y": 0,
-          "width": 375,
-          "height": 56,
-          "children": [
-            { "type": "icon", "name": "Hamburger", "x": 16, "y": 16, "width": 24, "height": 24, "asset": "assets/icon-menu.svg" },
-            { "type": "text", "name": "LogoMobile", "x": 148, "y": 12, "width": 84, "height": 32, "style": { "text": "Recipe Finder", "fontSize": 16, "fontWeight": 700, "color": "tokens.colors.primary", "align": "center" } }
-          ]
-        },
-        {
-          "type": "frame",
-          "name": "MobileHero",
-          "x": 16,
-          "y": 72,
-          "width": 343,
-          "height": 360,
-          "children": [
-            { "type": "pill", "name": "MobilePill", "x": 0, "y": 8, "width": 64, "height": 24, "style": { "text": "Try now", "background": "tokens.colors.accent", "radius": 999, "fontSize": 12 } },
-            { "type": "text", "name": "MobileHeroTitle", "x": 0, "y": 48, "width": 320, "height": 72, "style": { "text": "Find recipes with what you already have", "fontSize": 28, "fontWeight": 600, "lineHeight": 34 } },
-            { "type": "text", "name": "MobileHeroSub", "x": 0, "y": 128, "width": 320, "height": 48, "style": { "text": "Enter ingredients (e.g., chicken, tomato) and discover quick, delicious meals.", "fontSize": 16, "color": "tokens.colors.text-secondary" } },
             {
-              "ref": "SearchBar",
-              "x": 0,
-              "y": 184,
-              "overrides": { "width": 343, "SearchButton.width": 120, "SearchInput.width": 200 }
-            },
-            { "type": "image", "name": "MobileHeroImage", "asset": "assets/hero", "x": 0, "y": 240, "width": 343, "height": 200, "style": { "radius": 12, "objectFit": "cover" } }
-          ]
-        },
-        {
-          "type": "frame",
-          "name": "MobileFeatured",
-          "x": 0,
-          "y": 452,
-          "width": 375,
-          "height": 340,
-          "children": [
-            { "type": "text", "name": "MobileFeaturedTitle", "x": 16, "y": 0, "width": 343, "height": 24, "style": { "text": "Featured Recipes", "fontSize": 20, "fontWeight": 600 } },
-            {
-              "type": "column",
-              "name": "FeaturedListMobile",
-              "x": 16,
+              "type": "TEXT",
+              "name": "FooterText",
+              "x": 80,
               "y": 36,
-              "width": 343,
-              "height": 300,
-              "children": [
-                { "ref": "RecipeCard", "overrides": { "width": 343, "CardImage.width": 343, "CardImage.height": 200, "CardTitle.text": "3-Ingredient Pasta", "CardDescription.text": "A quick pasta made with pantry staples. Ready in 15 minutes." } },
-                { "ref": "RecipeCard", "y": 220, "overrides": { "width": 343, "CardImage.asset": "assets/recipe-2", "CardTitle.text": "Spicy Tomato Stew" } }
-              ]
+              "width": 1280,
+              "height": 28,
+              "characters": "© 2025 Recipe Finder — Built with ❤️ using React",
+              "fontName": { "family": "Poppins", "style": "Regular" },
+              "fontSize": 14,
+              "textAlignHorizontal": "CENTER",
+              "fills": [{ "type": "SOLID", "color": { "r": 0.129, "g": 0.129, "b": 0.129 } }]
             }
           ]
         }
