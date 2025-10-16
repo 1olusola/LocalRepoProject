@@ -1,0 +1,45 @@
+{
+  "heroBadge": "Try now",
+  "heroTitle": "Find recipes with what you already have",
+  "heroSub": "Enter ingredients (e.g., chicken, tomato) and discover quick, delicious meals tailored to your diet.",
+  "searchPlaceholder": "Enter ingredients, e.g., chicken, tomato",
+  "searchButton": "Search",
+  "tag1": "Vegetarian",
+  "tag2": "30 mins",
+  "tag3": "Dessert",
+  "featuredTitle": "Featured Recipes",
+  "featuredSub": "Hand-picked recipes based on trending ingredients",
+  "recipeCards": [
+    {
+      "image": "https://i.ibb.co/6y3Z0kL/recipe-1.jpg",
+      "title": "3-Ingredient Pasta",
+      "time": "⏱ 20 mins",
+      "difficulty": "🍽 Easy",
+      "desc": "A quick pasta made with pantry staples. Ready in 15 minutes.",
+      "cta": "View recipe"
+    },
+    {
+      "image": "https://i.ibb.co/P9r2z6s/recipe-2.jpg",
+      "title": "Spicy Tomato Stew",
+      "time": "⏱ 35 mins",
+      "difficulty": "🍽 Medium",
+      "desc": "Hearty stew with spices and fresh tomatoes.",
+      "cta": "View recipe"
+    },
+    {
+      "image": "https://i.ibb.co/z5CV3k7/recipe-3.jpg",
+      "title": "Avocado Toast Deluxe",
+      "time": "⏱ 10 mins",
+      "difficulty": "🍽 Easy",
+      "desc": "Creamy avocado with herbs on toasted bread.",
+      "cta": "View recipe"
+    }
+  ],
+  "step1Title": "Search",
+  "step1Desc": "Add ingredients and filters",
+  "step2Title": "Pick",
+  "step2Desc": "Choose a recipe to view details",
+  "step3Title": "Cook",
+  "step3Desc": "Follow step-by-step instructions",
+  "footer": "© 2025 Recipe Finder — Built with ❤️ using React"
+}
