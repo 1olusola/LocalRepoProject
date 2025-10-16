@@ -1,0 +1,199 @@
+{
+  "name": "Recipe Finder",
+  "description": "Landing page",
+  "thumbnail": "https://i.ibb.co/6y3Z0kL/hero-plate.jpg",
+  "nodes": [
+    {
+      "type": "section",
+      "id": "hero",
+      "styles": {
+        "background": "var(--color-surface-1)",
+        "padding": "var(--dockit-space-8) var(--dockit-space-4)"
+      },
+      "children": [
+        {
+          "type": "container",
+          "maxWidth": "xl",
+          "layout": "row",
+          "gap": 8,
+          "vAlign": "center",
+          "children": [
+            {
+              "type": "stack",
+              "direction": "column",
+              "gap": 4,
+              "flex": 1,
+              "children": [
+                {
+                  "type": "badge",
+                  "label": "Try now",
+                  "color": "warning"
+                },
+                {
+                  "type": "heading",
+                  "text": "Find recipes with what you already have",
+                  "level": 1,
+                  "className": "dockit-text-3xl"
+                },
+                {
+                  "type": "text",
+                  "text": "Enter ingredients (e.g. chicken, tomato) and discover quick, delicious meals tailored to your diet.",
+                  "className": "dockit-text-lg"
+                },
+                {
+                  "type": "search-field",
+                  "placeholder": "Enter ingredients, e.g. chicken, tomato",
+                  "buttonLabel": "Search",
+                  "size": "lg",
+                  "shadow": "shadow-md"
+                },
+                {
+                  "type": "group",
+                  "gap": 2,
+                  "wrap": true,
+                  "children": [
+                    { "type": "chip", "label": "Vegetarian" },
+                    { "type": "chip", "label": "30 mins" },
+                    { "type": "chip", "label": "Dessert" }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "image",
+              "src": "https://i.ibb.co/6y3Z0kL/hero-plate.jpg",
+              "alt": "Plate of food",
+              "radius": "radius-lg",
+              "shadow": "shadow-xl",
+              "aspectRatio": "4/3",
+              "flex": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "section",
+      "id": "featured",
+      "styles": {
+        "padding": "var(--dockit-space-10) var(--dockit-space-4)",
+        "background": "var(--color-surface-0)"
+      },
+      "children": [
+        {
+          "type": "container",
+          "maxWidth": "xl",
+          "children": [
+            {
+              "type": "stack",
+              "direction": "column",
+              "gap": 2,
+              "children": [
+                {
+                  "type": "heading",
+                  "text": "Featured Recipes",
+                  "level": 2,
+                  "className": "dockit-text-2xl"
+                },
+                {
+                  "type": "text",
+                  "text": "Hand-picked recipes based on trending ingredients",
+                  "className": "dockit-text-base"
+                }
+              ]
+            },
+            {
+              "type": "grid",
+              "cols": { "sm": 1, "md": 2, "lg": 3 },
+              "gap": 6,
+              "styles": { "marginTop": "var(--dockit-space-6)" },
+              "children": [
+                {
+                  "type": "recipe-card",
+                  "image": "https://i.ibb.co/P9r2z6s/recipe-1.jpg",
+                  "title": "3-Ingredient Pasta",
+                  "meta": ["⏱ 20 mins", "🍽 Easy"],
+                  "description": "A quick pasta made with pantry staples. Ready in 15 minutes.",
+                  "href": "#"
+                },
+                {
+                  "type": "recipe-card",
+                  "image": "https://i.ibb.co/k3t5pBg/recipe-2.jpg",
+                  "title": "Spicy Tomato Stew",
+                  "meta": ["⏱ 35 mins", "🍽 Medium"],
+                  "description": "Hearty stew with spices and fresh tomatoes.",
+                  "href": "#"
+                },
+                {
+                  "type": "recipe-card",
+                  "image": "https://i.ibb.co/z5CV3k7/recipe-3.jpg",
+                  "title": "Avocado Toast Deluxe",
+                  "meta": ["⏱ 10 mins", "🍽 Easy"],
+                  "description": "Creamy avocado with herbs on toasted bread.",
+                  "href": "#"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "section",
+      "id": "how",
+      "styles": {
+        "padding": "var(--dockit-space-10) var(--dockit-space-4)",
+        "background": "var(--color-surface-1)"
+      },
+      "children": [
+        {
+          "type": "container",
+          "maxWidth": "xl",
+          "children": [
+            {
+              "type": "grid",
+              "cols": { "sm": 1, "md": 3 },
+              "gap": 8,
+              "children": [
+                {
+                  "type": "step",
+                  "icon": "🔍",
+                  "title": "Search",
+                  "text": "Add ingredients and filters"
+                },
+                {
+                  "type": "step",
+                  "icon": "👆",
+                  "title": "Pick",
+                  "text": "Choose a recipe to view details"
+                },
+                {
+                  "type": "step",
+                  "icon": "🍳",
+                  "title": "Cook",
+                  "text": "Follow step-by-step instructions"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+
+    {
+      "type": "footer",
+      "styles": {
+        "background": "var(--color-surface-2)",
+        "padding": "var(--dockit-space-6) var(--dockit-space-4)"
+      },
+      "children": [
+        {
+          "type": "text",
+          "text": "© 2025 Recipe Finder — Built with ❤️ using React",
+          "className": "dockit-text-sm",
+          "align": "center"
+        }
+      ]
+    }
+  ]
+}
