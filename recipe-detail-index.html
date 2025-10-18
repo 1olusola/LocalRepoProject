@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <title>Recipe Finder – 3-Ingredient Pasta</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <style>
+    /* ---------- TOKENS ---------- */
+    :root {
+      --primary: #FF7043;
+      --primary-dark: #E85E35;
+      --secondary: #4CAF50;
+      --accent: #FFD54F;
+      --bg: #FAFAFA;
+      --card: #FFFFFF;
+      --text: #212121;
+      --muted: #757575;
+      --border: #E0E0E0;
+      --radius-btn: 8px;
+      --radius-card: 12px;
+      --radius-image: 16px;
+      --radius-pill: 999px;
+      --shadow: 0 8px 24px rgba(0,0,0,.08);
+      --shadow-lift: 0 10px 20px rgba(0,0,0,.12);
+      --spacing-xs: 8px;
+      --spacing-sm: 12px;
+      --spacing-md: 24px;
+      --spacing-lg: 40px;
+      --spacing-xl: 80px;
+      --font: "Poppins", system-ui, sans-serif;
+    }
+
+    /* ---------- RESET ---------- */
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+    }
+    img { max-width: 100%; display: block; }
+    button { font-family: inherit; cursor: pointer; border: none; background: none; }
+    a { text-decoration: none; color: inherit; }
+    input[type="checkbox"] { accent-color: var(--primary); }
+
+    /* ---------- HEADER ---------- */
+    header {
+      height: 80px;
+      background: var(--card);
+      padding: 0 var(--spacing-xl);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 2px 4px rgba(0,0,0,.04);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    .logo {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .logo::before {
+      content: "";
+      width: 24px; height: 24px;
+      background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23FF7043"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>') center/contain no-repeat;
+    }
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+    }
+    nav a {
+      font-size: 16px;
+      font-weight: 500;
+      color: var(--text);
+    }
+    .btn-primary {
+      background: var(--primary);
+      color: #fff;
+      font-size: 16px;
+      font-weight: 600;
+      padding: 10px 20px;
+      border-radius: var(--radius-btn);
+      transition: background .2s;
+    }
+    .btn-primary:hover { background: var(--primary-dark); }
+    .hamburger { display: none; width: 44px; height: 44px; }
+
+    /* ---------- HERO SECTION ---------- */
+    .hero-detail {
+      max-width: 1280px;
+      margin: 24px auto 0;
+      padding: 0 var(--spacing-xl);
+      display: grid;
+      grid-template-columns: 720px 1fr;
+      gap: 40px;
+    }
+    .hero-image-wrapper {
+      position: relative;
+    }
+    .hero-image {
+      width: 720px;
+      height: 420px;
+      object-fit: cover;
+      border-radius: var(--radius-image);
+      box-shadow: var(--shadow);
+    }
+    .hero-tag {
+      position: absolute;
+      top: 16px;
+      left: 16px;
+      background: var(--accent);
+      color: var(--text);
+      font-size: 12px;
+      font-weight: 600;
+      padding: 6px 10px;
+      border-radius: var(--radius-pill);
+    }
+    .btn-fav {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      width: 48px; height: 48px;
+      border-radius: 50%;
+      background: rgba(255,255,255,.9);
+      display: grid;
+      place-items: center;
+      box-shadow: 0 2px 8px rgba(0,0,0,.08);
+    }
+    .btn-fav svg {
+      width: 24px; height: 24px;
+      fill: var(--primary);
+    }
+    .recipe-title {
+      font-size: 32px;
+      font-weight: 600;
+      line-height: 40px;
+      margin-top: 16px;
+    }
+    .meta-row {
+      display: flex;
+      gap: 24px;
+      margin-top: 12px;
+      font-size: 14px;
+      color: var(--muted);
+    }
+    .short-blurb {
+      font-size: 16px;
+      color: var(--muted);
+      margin-top: 12px;
+    }
+
+    /* ---------- SIDEBAR ---------- */
+    .sidebar {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      position: sticky;
+      top: 104px;
+      height: max-content;
+    }
+    .card {
+      background: var(--card);
+      border-radius: var(--radius-card);
+      box-shadow: var(--shadow);
+      padding: 20px;
+    }
+    .card h3 {
+      font-size: 18px;
+      margin-bottom: 12px;
+    }
+    .card-actions {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+    .btn-save {
+      flex: 1;
+      background: var(--primary);
+      color: #fff;
+      font-size: 16px;
+      font-weight: 600;
+      padding: 10px;
+      border-radius: var(--radius-btn);
+    }
+    .btn-icon {
+      width: 44px; height: 44px;
+      border: 1px solid var(--border);
+      background: var(--card);
+      border-radius: var(--radius-btn);
+      display: grid;
+      place-items: center;
+    }
+    .stats {
+      display: flex;
+      gap: 24px;
+      font-size: 14px;
+      color: var(--muted);
+    }
+    .nutrition-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      font-size: 14px;
+    }
+    .nutrition-grid div {
+      display: flex;
+      justify-content: space-between;
+      font-weight: 600;
+    }
+    .servings-control {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .servings-control button {
+      width: 36px; height: 36px;
+      border: 1px solid var(--border);
+      background: var(--card);
+      border-radius: 6px;
+      font-size: 18px;
+    }
+    .servings-control input {
+      width: 48px;
+      text-align: center;
+      font-size: 16px;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 4px;
+    }
+    .related-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .related-item {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+    .related-item img {
+      width: 64px; height: 64px;
+      border-radius: 8px;
+      object-fit: cover;
+    }
+    .related-info h4 {
+      font-size: 14px;
+      font-weight: 600;
+    }
+    .related-info p {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    /* ---------- MAIN CONTENT ---------- */
+    .main-content {
+      max-width: 1280px;
+      margin: 24px auto 0;
+      padding: 0 var(--spacing-xl) var(--spacing-xl);
+      display: grid;
+      grid-template-columns: 720px 1fr;
+      gap: 40px;
+    }
+    .ingredients-card h2,
+    .instructions-card h2 {
+      font-size: 24px;
+      margin-bottom: 16px;
+    }
+    .ingredients-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px 24px;
+    }
+    .ingredient {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 16px;
+    }
+    .ingredient input {
+      width: 18px; height: 18px;
+    }
+    .instructions-list {
+      list-style: none;
+      counter-reset: step;
+    }
+    .step {
+      counter-increment: step;
+      display: flex;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+    .step-number {
+      flex-shrink: 0;
+      width: 40px; height: 40px;
+      background: #FFF3E0;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      font-weight: 600;
+      font-size: 16px;
+    }
+    .step-content {
+      flex: 1;
+    }
+    .step-content p {
+      font-size: 16px;
+      line-height: 26px;
+    }
+    .step-content img {
+      margin-top: 12px;
+      border-radius: 8px;
+    }
+    .tips {
+      background: #FFF7F0;
+      border-left: 4px solid var(--accent);
+      padding: 12px 16px;
+      border-radius: 8px;
+      margin-top: 24px;
+      font-size: 14px;
+    }
+
+    /* ---------- FOOTER ---------- -->
+    footer {
+      height: 100px;
+      background: #FFF3E0;
+      text-align: center;
+      font-size: 14px;
+      display: grid;
+      place-items: center;
+      padding: 0 16px;
+      margin-top: 64px;
+    }
+
+    /* ---------- MOBILE ---------- -->
+    @media (max-width: 768px) {
+      header { padding: 0 16px; height: 56px; }
+      nav { display: none; }
+      .hamburger { display: block; }
+      .logo { font-size: 16px; }
+
+      .hero-detail,
+      .main-content {
+        grid-template-columns: 1fr;
+        padding: 0 16px;
+      }
+      .hero-image {
+        width: 100%;
+        height: 240px;
+      }
+      .recipe-title {
+        font-size: 24px;
+        line-height: 32px;
+      }
+      .ingredients-grid {
+        grid-template-columns: 1fr;
+      }
+      .sidebar {
+        position: static;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ========== HEADER ---------- -->
+  <header>
+    <div class="hamburger">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line>
+      </svg>
+    </div>
+    <a href="#" class="logo">Recipe Finder</a>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">Search Recipes</a>
+      <a href="#">Favorites</a>
+      <a href="#">About</a>
+      <a href="#" class="btn-primary">Get Started</a>
+    </nav>
+  </header>
+
+  <!-- ========== HERO SECTION ---------- -->
+  <section class="hero-detail">
+    <div class="hero-image-wrapper">
+      <img src="https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?auto=format&fit=crop&w=1200&q=80" alt="3-Ingredient Pasta" class="hero-image">
+      <span class="hero-tag">Italian</span>
+      <button class="btn-fav" aria-label="Save to favorites">
+        <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+      </button>
+      <h1 class="recipe-title">3-Ingredient Pasta</h1>
+      <div class="meta-row">
+        <span>⏱ 20 mins</span>
+        <span>🍽 Serves 2</span>
+        <span>Difficulty: Easy</span>
+      </div>
+      <p class="short-blurb">A simple pasta that uses 3 pantry ingredients for a quick weeknight meal.</p>
+    </div>
+
+    <!-- ---------- SIDEBAR ---------- -->
+    <aside class="sidebar">
+      <div class="card">
+        <h3>Recipe Actions</h3>
+        <div class="card-actions">
+          <button class="btn-save">Save to favorites</button>
+          <button class="btn-icon" aria-label="Print recipe">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M6 9V2h12v7M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2M6 14h12v8H6z"/>
+            </svg>
+          </button>
+          <button class="btn-icon" aria-label="Share recipe">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.5 10.5l7 4.5M15.5 13.5l-7 4.5"/>
+            </svg>
+          </button>
+        </div>
+        <div class="stats">
+          <span>⏱ 20 mins</span>
+          <span>🍽 Serves 2</span>
+          <span>Easy</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>Nutrition (per serving)</h3>
+        <div class="nutrition-grid">
+          <div><span>Calories</span><span>240 kcal</span></div>
+          <div><span>Protein</span><span>8 g</span></div>
+          <div><span>Carbs</span><span>32 g</span></div>
+          <div><span>Fat</span><span>6 g</span></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>Shopping List</h3>
+        <button class="btn-save" style="width:100%;margin-bottom:12px;">Add all to shopping list</button>
+        <div class="servings-control">
+          <button aria-label="Decrease servings">−</button>
+          <input type="number" value="2" min="1" aria-label="Servings">
+          <button aria-label="Increase servings">+</button>
+          <span style="font-size:14px;color:var(--muted);margin-left:8px;">Servings</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>Related Recipes</h3>
+        <div class="related-list">
+          <a href="#" class="related-item">
+            <img src="https://images.unsplash.com/photo-1609501676725-7186f017a4b7?auto=format&fit=crop&w=200&q=80" alt="Spicy Tomato Stew">
+            <div class="related-info">
+              <h4>Spicy Tomato Stew</h4>
+              <p>30 mins • Easy</p>
+            </div>
+          </a>
+          <a href="#" class="related-item">
+            <img src="https://images.unsplash.com/photo-1523049673857-eb18f1d7b578?auto=format&fit=crop&w=200&q=80" alt="Avocado Toast">
+            <div class="related-info">
+              <h4>Avocado Toast Deluxe</h4>
+              <p>10 mins • Easy</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </aside>
+  </section>
+
+  <!-- ========== MAIN CONTENT ---------- -->
+  <main class="main-content">
+    <section class="ingredients-card">
+      <h2>Ingredients</h2>
+      <div class="ingredients-grid">
+        <label class="ingredient">
+          <input type="checkbox">
+          <span>200 g spaghetti</span>
+        </label>
+        <label class="ingredient">
+          <input type="checkbox">
+          <span>2 tbsp olive oil</span>
+        </label>
+        <label class="ingredient">
+          <input type="checkbox">
+          <span>1 clove garlic, minced</span>
+        </label>
+        <label class="ingredient">
+          <input type="checkbox">
+          <span>Salt & pepper to taste</span>
+        </label>
+      </div>
+    </section>
+
+    <section class="instructions-card">
+      <h2>Instructions</h2>
+      <ol class="instructions-list">
+        <li class="step">
+          <div class="step-number">1</div>
+          <div class="step-content">
+            <p>Bring a large pot of salted water to a boil. Add spaghetti and cook according to package instructions until al dente.</p>
+            <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?auto=format&fit=crop&w=400&q=60" alt="Boiling pasta">
+          </div>
+        </li>
+        <li class="step">
+          <div class="step-number">2</div>
+          <div class="step-content">
+            <p>While pasta cooks, heat olive oil in a large skillet over medium heat. Add minced garlic and sauté for 1 minute until fragrant but not browned.</p>
+          </div>
+        </li>
+        <li class="step">
+          <div class="step-number">3</div>
+          <div class="step-content">
+            <p>Drain pasta, reserving ½ cup pasta water. Toss pasta into the skillet with garlic oil. Add a splash of reserved water and mix well. Season with salt and pepper. Serve immediately.</p>
+          </div>
+        </li>
+      </ol>
+      <div class="tips">
+        <strong>Chef Tips:</strong> Use good-quality olive oil for the best flavor. Add chili flakes for a spicy kick.
+      </div>
+    </section>
+  </main>
+
+  <!-- ---------- FOOTER ---------- -->
+  <footer>
+    © 2025 Recipe Finder — Built with ❤️ using React
+  </footer>
+
+</body>
+</html>
